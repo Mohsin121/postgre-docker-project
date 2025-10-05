@@ -23,8 +23,13 @@ app.use(errorHandler);
 //create user table if not exists
 createUserTable().catch(console.error);
 
-//pool testing
+// app test
 app.get("/", async(req, res) => {
+     res.send(`Welcome | App Working Fine`);
+ });
+
+//pool testing
+app.get("/pool", async(req, res) => {
    console.log("Pool testing started");
     const result = await pool.query("SELECT current_database()");
     console.log(result);
